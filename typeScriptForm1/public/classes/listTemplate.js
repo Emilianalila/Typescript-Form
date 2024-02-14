@@ -1,13 +1,13 @@
 export class ListTemplate {
     constructor(container) {
         this.container = container;
-    }
+    } // This means that we are telling the container to draw something in the list.
     render(heading, item, position) {
-        const li = document.createElement('li'); // cada Li
-        const h4 = document.createElement('h4'); // el titulo dependiendo de si es Invoice or Payment
+        const li = document.createElement('li'); 
+        const h4 = document.createElement('h4'); 
         h4.innerHTML = heading;
         li.append(h4);
-        const p = document.createElement('p'); // lo q el usuario ingresa pero en formato class :`${this.name} ${this.details} ${this.amount}`
+        const p = document.createElement('p'); 
         p.innerHTML = item.format();
         li.append(p);
         if (position === 'start') {

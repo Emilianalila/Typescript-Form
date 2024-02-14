@@ -1,3 +1,4 @@
+// npm install -g typscript (first we install globaly typescript so we can create a new app, any time, we use sudo, to installed globlaly) 
 /* to compile ts to js, I have to go to the terminal en write: "tsc index.ts index.js" but if both have the same name, I can just write tsc index.ts */
 // _tsc index.ts -w (I can compile automatically)
 //_ create 2 folders -public and -src 'source' and then we have to separate al the file, between the file that I going to deploy and the file, that not
@@ -9,7 +10,7 @@
 // access modifiers ("public", "private" (we can access to de propertie from the inside of de class but not outside), "readonly")
 // modules (change to  "target": "es2016" and from commonjs to "module": "ES2015") and add type = 'module' to my script in index.html 
 //interface 
-import { Invoice } from "./classes/invoice.js"; //we compile js not ts at the end.
+import { Invoice } from "./classes/invoice.js";                     //at the end, we compile js not ts.
 import { Payment } from "./classes/payment.js";
 import { ListTemplate } from "./classes/listTemplate.js";
 const form = document.querySelector('form');
@@ -17,14 +18,11 @@ const type = document.getElementById('type');
 const tofrom = document.getElementById('tofrom');
 const details = document.getElementById('details');
 const amount = document.getElementById('amount');
-/* const itemLi = document.createElement('li');
-itemLi.innerHTML = '';
-itemUl?.append(itemLi); */
 const itemUl = document.querySelector('ul');
-const contenedor = new ListTemplate(itemUl); // la clase ListTemplate, tiene un solo parametro en su constructor el cual es de tipo element ul, osea que le tenemos q dar eso para q pueda funcionar.
+const contenedor = new ListTemplate(itemUl); 
+let doc;
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let doc;
     if (type.value === 'invoice') {
         doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
     }
@@ -33,19 +31,4 @@ form.addEventListener('submit', (e) => {
     }
     contenedor.render(type.value, doc, 'end');
 });
-/* itemLi.innerHTML = `${type.value}, ${ tofrom.value},  ${ details.value},  ${ amount.valueAsNumber}`;
-console.log(`${type.value}, ${tofrom.value}, ${details.value}`, amount.valueAsNumber); */
-/* let docOne: HasFormatter;
-let docTwo: HasFormatter;
 
-docOne = new Invoice('EMI', 'VAMOS', 999);
-docTwo = new Payment('EMI', 'VAMOS', 999);
-
-const person1 = new Invoice('emi', 'ya viene', 89);
-const person2 = new Invoice('EmiLIANA', 'Sonrei', 89);
-console.log(person1.format());
-//console.log(Invoice.name) */
-//const anchor = document.querySelector('a')!; // I am super sure that we have an element with an anchor tag is because I putting' ! ' also I Can put ? in front of the (anchor?.href)
-//console.log(anchor.href);
-//const form2 = document.querySelector('.new-item-form') as HTMLFormElement; // when I hover over form2 it say it that from2 is a const form: element, because we are using a class and a class it can be used or apply in any diferent element, it doesnt know that it is a form. so we have to tell to typescript which element is by casting that element with "as HTMLFormElement" with this ... now we can use all the properties or methods of the form like (form.children) 
-//console.log(form2.children);
