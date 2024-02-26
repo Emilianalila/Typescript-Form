@@ -13,7 +13,7 @@
 //interface 
 
   
-import { Invoice } from "./classes/invoice.js"; //we compile js not ts at the end.
+import { Invoice } from "./classes/invoice.js"; //we compile "js" not ts at the end.
 import { HasFormatter } from "./interfaces/hasFormatter.js";
 import { Payment } from "./classes/payment.js"; 
 import { ListTemplate } from "./classes/listTemplate.js";

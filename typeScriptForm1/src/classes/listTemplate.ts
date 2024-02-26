@@ -3,7 +3,7 @@ import { HasFormatter } from "../interfaces/hasFormatter.js";
 export class ListTemplate{
   constructor(private container: HTMLUListElement){} // This means that we are telling the container to draw something in the list.
   
-  render(heading: string, item: HasFormatter, position: 'start'|'end'){
+  render(heading: string, item: HasFormatter, position: 'start'|'end'){// Method
     const li = document.createElement('li'); 
     const h4 = document.createElement('h4'); 
     h4.innerHTML = heading;
